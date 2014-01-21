@@ -6,10 +6,10 @@ title: Welcome to my blog!
 
 
 ## About me
-My name is Liangyu Chen.
+My name is Liangyu Chen. I'm a postgraduate student.
 
 ## My interests
-I like reading books.
+I'm interested in computer science, especially artificial intelligence.
 
 
 
