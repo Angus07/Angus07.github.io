@@ -2,31 +2,11 @@
 layout: default
 ---
 
-<section class="hero panel panel-hero">
-  <div class="hero-copy">
-    <span class="section-label">{{ page.hero_label }}</span>
-    <h1>{{ page.hero_title | default: site.title }}</h1>
+<section class="panel panel-prose panel-home-intro">
+  <span class="section-label">Orientation</span>
+  <div class="rich-text">
+    {{ content }}
   </div>
-  <p class="hero-intro">{{ page.hero_intro | default: site.description }}</p>
-</section>
-
-<section class="home-grid">
-  <article class="panel panel-prose">
-    <span class="section-label">Orientation</span>
-    <div class="rich-text">
-      {{ content }}
-    </div>
-  </article>
-
-  <aside class="panel panel-focus">
-    <span class="section-label">Current focus</span>
-    <ul class="focus-list">
-      <li>Human-AI collaboration</li>
-      <li>Real-time conversational AI systems</li>
-      <li>Knowledge organization and decision systems for the AI era</li>
-    </ul>
-    <a class="inline-link" href="{{ '/about/' | relative_url }}">More about me</a>
-  </aside>
 </section>
 
 {% assign featured = site.posts.first %}
