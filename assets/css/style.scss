@@ -1,0 +1,33 @@
+---
+---
+
+@import "minima";
+
+.wrapper {
+  max-width: 880px;
+}
+
+.site-title {
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.post-title,
+.page-heading {
+  letter-spacing: -0.03em;
+}
+
+.post-content p,
+.page-content p {
+  font-size: 1.06rem;
+  line-height: 1.8;
+}
+
+.home-intro {
+  margin: 0 0 2rem;
+  color: #555;
+}
+
+.post-list-heading {
+  margin-top: 2.5rem;
+}

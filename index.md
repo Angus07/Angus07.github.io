@@ -1,15 +1,9 @@
 ---
-layout: page
-title: Welcome to my blog!
+layout: home
+title: Home
 ---
-{% include JB/setup %}
 
-
-## About me
-My name is Light07.
-
-## My interests
-I'm interested in computer science and artificial intelligence.
-
-
-
+<div class="home-intro">
+  <p><strong>Angus07</strong> is a personal site about agents, AI systems, and complex problem solving.</p>
+  <p>The first featured post introduces <strong>Nautil</strong>, a hierarchically recursive agent framework for complex problem solving.</p>
+</div>
