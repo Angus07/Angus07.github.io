@@ -1,0 +1,72 @@
+---
+layout: default
+---
+
+<section class="hero panel panel-hero">
+  <div class="hero-copy">
+    <span class="section-label">{{ page.hero_label }}</span>
+    <h1>{{ page.hero_title | default: site.title }}</h1>
+  </div>
+  <p class="hero-intro">{{ page.hero_intro | default: site.description }}</p>
+</section>
+
+<section class="home-grid">
+  <article class="panel panel-prose">
+    <span class="section-label">Orientation</span>
+    <div class="rich-text">
+      {{ content }}
+    </div>
+  </article>
+
+  <aside class="panel panel-focus">
+    <span class="section-label">Current focus</span>
+    <ul class="focus-list">
+      <li>Agent frameworks and control loops</li>
+      <li>Reasoning structure and decomposition</li>
+      <li>AI systems that stay legible under complexity</li>
+    </ul>
+    <a class="inline-link" href="{{ '/about/' | relative_url }}">More about me</a>
+  </aside>
+</section>
+
+{% assign featured = site.posts.first %}
+{% if featured %}
+<section class="panel panel-featured">
+  <div class="section-head">
+    <span class="section-label">Latest writing</span>
+    <a class="inline-link" href="{{ featured.url | relative_url }}">Open article</a>
+  </div>
+
+  <a class="featured-card" href="{{ featured.url | relative_url }}">
+    <p class="post-date">{{ featured.date | date: "%B %-d, %Y" }}</p>
+    <h2>{{ featured.title }}</h2>
+    <p>{{ featured.summary | default: featured.excerpt | strip_html | truncate: 220 }}</p>
+    {% if featured.tags %}
+    <ul class="tag-list">
+      {% for tag in featured.tags %}
+      <li>{{ tag }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </a>
+</section>
+
+<section class="panel panel-archive">
+  <div class="section-head">
+    <span class="section-label">Archive</span>
+    <span class="archive-count">{{ site.posts | size }} post{% if site.posts.size != 1 %}s{% endif %}</span>
+  </div>
+
+  <div class="archive-list">
+    {% for post in site.posts %}
+    <a class="archive-item" href="{{ post.url | relative_url }}">
+      <div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.summary | default: post.excerpt | strip_html | truncate: 140 }}</p>
+      </div>
+      <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

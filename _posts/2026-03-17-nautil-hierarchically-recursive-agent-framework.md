@@ -2,8 +2,9 @@
 layout: post
 title: "Nautil: A Hierarchically Recursive Agent Framework for Complex Problem Solving"
 date: 2026-03-17
-categories: [agents]
-tags: [AI, agents, frameworks, Nautil]
+description: A framework for structuring complex problem solving as a hierarchically recursive task tree of local solvers.
+summary: Nautil is a hierarchically recursive agent framework that organizes complex work as a task tree of local solvers, each with its own execution, verification, and backtracking loop.
+tags: [Agent, Framework, AI, Nautil]
 ---
 
 ## The Problem

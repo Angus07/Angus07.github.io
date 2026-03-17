@@ -1,5 +1,25 @@
 ---
 layout: default
 ---
-{% include JB/setup %}
-{% include themes/twitter/post.html %}
+
+<article class="content-sheet article-sheet">
+  <header class="content-header">
+    <a class="inline-link" href="{{ '/' | relative_url }}">Back to home</a>
+    <p class="post-date">{{ page.date | date: "%B %-d, %Y" }}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}
+    <p class="content-summary">{{ page.summary }}</p>
+    {% endif %}
+    {% if page.tags %}
+    <ul class="tag-list">
+      {% for tag in page.tags %}
+      <li>{{ tag }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </header>
+
+  <div class="rich-text article-body">
+    {{ content }}
+  </div>
+</article>

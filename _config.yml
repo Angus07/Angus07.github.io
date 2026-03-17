@@ -1,42 +1,31 @@
-title: Angus07
-description: Notes on agents, AI systems, and complex problem solving.
+title: Liangyu Chen
+description: Personal writings on agent systems, AI engineering, and complex problem solving.
 url: "https://angus07.github.io"
 baseurl: ""
 lang: en
 timezone: Asia/Shanghai
+future: true
 
-theme: minima
 markdown: kramdown
 highlighter: rouge
-permalink: /:categories/:year/:month/:day/:title/
-show_excerpts: true
+permalink: /writing/:title/
 
-header_pages:
-  - about.md
+author:
+  name: Liangyu Chen
+  email: cly1cn@126.com
+  github: Angus07
+  location: China
 
-github_username: Angus07
-
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
 
 exclude:
   - README.md
-  - Rakefile
-  - changelog.md
-  - History.markdown
-  - archive.html
-  - atom.xml
-  - categories.html
-  - pages.html
-  - rss.xml
-  - sitemap.txt
-  - tags.html
-  - _drafts
-  - _includes
-  - _layouts
-  - _plugins
-  - assets/themes
-  - 404.html
-  - _posts/2011-12-29-test.md
-  - _posts/sampleorigin.txt
