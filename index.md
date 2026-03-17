@@ -4,9 +4,9 @@ title: Liangyu Chen
 description: Personal blog of Liangyu Chen
 hero_label: Personal blog
 hero_title: Liangyu Chen
-hero_intro: I'm an AI engineer, with a background in computer science and years of hands-on work in industry.
+hero_intro: I'm an AI engineer writing about work in the AI era, human-AI collaboration, real-time conversational systems, and knowledge organization and decision systems.
 ---
 
-This site is where I publish **frameworks, essays, and technical notes** on agent systems, AI engineering, and the structure of complex work.
+This site is where I publish **personal reflections, essays, and technical notes** on work, AI systems, and the changing shape of thinking and execution in the AI era.
 
-I care most about **how intelligence is organized**, how reasoning stays legible as tasks expand, and what kinds of control loops make advanced systems usable in practice.
+I'm especially interested in **human-AI collaboration**, **real-time conversational AI**, and **knowledge organization and decision systems** built for AI-native workflows.
