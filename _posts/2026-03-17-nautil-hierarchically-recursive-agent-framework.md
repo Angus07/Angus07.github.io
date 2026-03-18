@@ -3,7 +3,7 @@ layout: post
 title: "Nautil: A Hierarchically Recursive Agent Framework for Complex Problem Solving"
 date: 2026-03-17
 description: A framework for structuring complex problem solving as a hierarchically recursive task tree of local solvers.
-summary: Nautil is a hierarchically recursive agent framework that organizes complex work as a task tree of local solvers, each with its own execution, verification, and backtracking loop.
+summary: Nautil is a hierarchically recursive agent framework that organizes complex work as a task tree of local solvers, each with its own execution, verification, and escalation path.
 tags: [Agent, Framework, AI, Nautil]
 ---
 
@@ -25,9 +25,9 @@ tags: [Agent, Framework, AI, Nautil]
 
 ## Why This Structure Is Legible
 
-**A hierarchically recursive tree is unusually easy for humans to understand.** Every node follows the same schema: goal, state, dependencies, result, verification, and backtracking. Once that schema is understood at one node, it is understood everywhere.
+**A hierarchically recursive tree is unusually easy for humans to understand.** Every node follows the same schema: goal, state, dependencies, result, verification, and escalation. Once that schema is understood at one node, it is understood everywhere.
 
-**The same property makes the framework naturally observable and naturally visualizable.** Nodes can be rendered as uniform cards, expansion corresponds to dependency delegation, node state changes correspond to execution progress, and backtracking paths can be highlighted directly.
+**The same property makes the framework naturally observable and naturally visualizable.** Nodes can be rendered as uniform cards, expansion corresponds to dependency delegation, node state changes correspond to execution progress, and escalation paths can be highlighted directly.
 
 **This matters because very complex problems need more than automation; they need inspectability.** A structure that remains readable as it grows has a much better chance of supporting high-complexity work in practice.
 
@@ -58,7 +58,7 @@ SOLVE(node, context):
   if VERIFY(node, result, context):
       return result
 
-  return BACKTRACK(node, result, context)
+  return ESCALATE(node, result, context)
 ```
 
 **These five primitives define the node-level closed loop.**
@@ -69,7 +69,7 @@ SOLVE(node, context):
 | **EXECUTE** | `(P, C) -> R` | Solve an atomic task directly |
 | **COMPOSE** | `(P, R_dependencies, C) -> R` | Continue solving the current node once dependencies have returned |
 | **VERIFY** | `(P, R, C) -> pass or fail` | Verify the current node's own result |
-| **BACKTRACK** | `(P, Failure, C) -> retry / replan / bubble` | Decide whether to retry, re-plan, or propagate failure upward |
+| **ESCALATE** | `(P, Failure, C) -> revised parent decision / partial delivery / upward propagation` | Hand unresolved failure to the parent layer for reinterpretation, restructuring, or further escalation |
 
 **`DECOMPOSE` and `COMPOSE` are the two defining node actions in this framework.** `DECOMPOSE` is dependency discovery plus task delegation; `COMPOSE` is resumed problem solving after dependency satisfaction.
 
@@ -89,15 +89,15 @@ SOLVE(node, context):
 
 **This scoping model aligns information with responsibility.** Nodes receive only the information needed for their current work, sibling branches stay isolated, and parents consume dependency results only at the stage where those results are actually needed.
 
-## Backtracking
+## Escalation
 
-**Hierarchical recursion matters most when failure is also hierarchical.** When a node fails verification, the system handles the problem first at the closest layer that can still correct it coherently.
+**Hierarchical recursion matters most when failure is also hierarchical.** When a node fails verification, the failure is escalated to the parent layer, where the larger structure can still be reconsidered coherently.
 
-1. **Local retry:** keep the current structure and adjust execution strategy.
-2. **Local re-plan:** rewrite the node's dependency decomposition and rerun that layer.
-3. **Upward backtracking:** let the parent reinterpret the role of the failing node in the larger structure.
+1. **Parent reinterpretation:** let the parent revise how the failing node fits into the larger task.
+2. **Parent restructuring:** let the parent rewrite the dependency structure and launch a corrected subgraph.
+3. **Further escalation:** if the parent still cannot resolve the issue, the failure continues upward.
 
-**This keeps correction local and prevents errors from diffusing through the entire system.** Each node is accountable for its own result first, and only unresolved failure moves upward.
+**This keeps responsibility aligned with hierarchy.** Each node is accountable for verifying its own result, and unresolved failure is handed upward to the layer that can make a larger structural decision.
 
 ## Where This Framework Fits
 
