@@ -335,6 +335,17 @@ a {
   color: var(--muted);
 }
 
+.rich-text img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1.4rem 0;
+  border-radius: 26px;
+  border: 1px solid var(--line);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+}
+
 .rich-text table {
   width: 100%;
   border-collapse: collapse;
